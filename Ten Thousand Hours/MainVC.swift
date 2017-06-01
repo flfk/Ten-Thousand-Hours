@@ -126,6 +126,7 @@ extension MainVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let goals = fetchedResultsController.fetchedObjects else { return 0 }
+        print("\(goals.count) rows")
         return goals.count
     }
     
@@ -175,7 +176,7 @@ extension MainVC: NSFetchedResultsControllerDelegate {
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
         switch (type) {
         case .insert:
-            if let indexPath = indexPath {
+            if let indexPath = newIndexPath {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
             break;

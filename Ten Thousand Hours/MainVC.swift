@@ -23,6 +23,8 @@ class MainVC: UIViewController {
     //    }
     //}
     
+    private let segueAddGoal = "SegueAddGoal"
+    
     //MARK: - Core Data Stack Set Up
     //create core data persistent container and fetched results controller variables and add NSFetchedResultsControllerDelegate to conform to protocol
     
@@ -80,8 +82,8 @@ class MainVC: UIViewController {
     
     //MARK: - Helper Methods VC
     
-    //** updateView only required if NSFetchedResultsController not used to ensure data is updated when data changes
-    private func updateView() {
+    //UpdateView updates the user interface
+    fileprivate func updateView() {
         var hasGoals = false
         
         if let goals = fetchedResultsController.fetchedObjects {
@@ -104,6 +106,15 @@ class MainVC: UIViewController {
     
     
     //MARK: - Navigation
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == segueAddGoal {
+            if let destinationViewController = segue.destination as? EditGoalVC {
+                //Configure view controller
+                destinationViewController.managedObjectContext = persistentContainer.viewContext
+            }
+        }
+    }
     
     
     //MARK: - Notification Handling
@@ -150,6 +161,28 @@ extension MainVC: UITableViewDataSource {
 }
 
 extension MainVC: NSFetchedResultsControllerDelegate {
+    
+    func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.beginUpdates()
+    }
+    
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        tableView.endUpdates()
+        
+        updateView()
+    }
+    
+    func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        switch (type) {
+        case .insert:
+            if let indexPath = indexPath {
+                tableView.insertRows(at: [indexPath], with: .fade)
+            }
+            break;
+        default:
+            print("...")
+        }
+    }
     
 }
 

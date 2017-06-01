@@ -18,7 +18,8 @@ class EditGoalVC: UIViewController {
     @IBOutlet weak var goalHoursLabel: UILabel!
     @IBOutlet weak var goalMinutesLabel: UILabel!
     
-    
+    //MARK: - Core Data Stack set up
+    var managedObjectContext: NSManagedObjectContext?
     
     //MARK: - View Life Cycle
     
@@ -29,6 +30,23 @@ class EditGoalVC: UIViewController {
     
     //MARK: - Actions
     
+    @IBAction func saveButton(_ sender: Any) {
+        guard let managedObjectContext = managedObjectContext else { return }
+        
+        //create goal
+        let goal = Goal(context: managedObjectContext)
+        
+        //configure goal
+        goal.name = addGoalNameTxtFld.text
+        goal.createdAt = NSDate()
+        //**PLACEHOLDER NEED TO ADD UI PICKED TO ADD INITIAL TIME
+        goal.totalMinutes = 60
+        
+        //pop view controller
+        _ = navigationController?.popViewController(animated: true)
+        
+    }
+
     
     //MARK: - Navigation
     

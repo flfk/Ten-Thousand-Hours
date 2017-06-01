@@ -15,6 +15,12 @@ class GoalCell: UITableViewCell {
     @IBOutlet weak var goalNameLabel: UILabel!
     @IBOutlet weak var goalDateLabel: UILabel!
     @IBOutlet weak var goalTimeLabel: UILabel!
+    
+    //MARK: - 
+    
+    static let reuseIdentifier = "GoalCell"
+    
+    //MARK: - Initialisation
 
     override func awakeFromNib() {
         super.awakeFromNib()

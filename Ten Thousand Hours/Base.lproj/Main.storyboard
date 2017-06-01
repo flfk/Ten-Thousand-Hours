@@ -94,14 +94,30 @@
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="vb3-Rb-JFD"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="kg9-HZ-Xf1"/>
+                                </connections>
                             </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No goals added yet" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OnO-Wc-4eC">
+                                <rect key="frame" x="0.0" y="273" width="320" height="21"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="21" id="Z6P-aM-Wzf"/>
+                                    <constraint firstAttribute="width" constant="320" id="kMN-8F-gd8"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
                             <constraint firstItem="opz-7Z-r8Z" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="7bZ-FR-Kyr"/>
+                            <constraint firstItem="OnO-Wc-4eC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="9Dk-OO-Cf9"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="opz-7Z-r8Z" secondAttribute="bottom" id="Waq-c5-9P2"/>
                             <constraint firstAttribute="trailing" secondItem="opz-7Z-r8Z" secondAttribute="trailing" id="ZlV-hN-RBR"/>
                             <constraint firstItem="opz-7Z-r8Z" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="dcN-6u-3mw"/>
+                            <constraint firstItem="OnO-Wc-4eC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gQj-Ur-igd"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" title="Goal Progress" id="RP5-lE-zOR">
@@ -112,6 +128,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="introductoryLabel" destination="OnO-Wc-4eC" id="jGy-RJ-rW7"/>
                         <outlet property="tableView" destination="opz-7Z-r8Z" id="Dfp-IA-X2j"/>
                     </connections>
                 </viewController>

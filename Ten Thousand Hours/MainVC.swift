@@ -15,14 +15,35 @@ class MainVC: UIViewController {
     
     @IBOutlet weak var introductoryLabel: UILabel!
     @IBOutlet weak var tableView: UITableView!
-
-    var goals = [Goal]() {
-        didSet {
-            updateView()
-        }
-    }
+    
+    //placeholder only before coredata stack is set up to set up tableview - remove after Core Data Stack Set Up
+    //var goals = [Goal]() {
+    //    didSet {
+    //        updateView()
+    //    }
+    //}
+    
+    //MARK: - Core Data Stack Set Up
+    //create core data persistent container and fetched results controller variables and add NSFetchedResultsControllerDelegate to conform to protocol
     
     private let persistentContainer = NSPersistentContainer(name: "Goals")
+    
+    fileprivate lazy var fetchedResultsController: NSFetchedResultsController<Goal> = {
+        //create fetch request
+        let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
+        
+        //configure fetch request
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
+        
+        //create fetched request controller
+        let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
+        
+        //configure fetched request controller
+        fetchedResultsController.delegate = self
+        
+        return fetchedResultsController
+        
+    } ()
     
     //MARK: - View Life Cycle
     
@@ -34,7 +55,18 @@ class MainVC: UIViewController {
                 print("Unable to Load Persistent Store")
                 print("\(error), \(error.localizedDescription)")
             } else {
+                
                 self.setupView()
+                
+                do {
+                    try self.fetchedResultsController.performFetch()
+                } catch {
+                    let fetchError = error as NSError
+                    print("Unable to Perform Fetch Request")
+                    print("\(fetchError), \(fetchError.localizedDescription)")
+                }
+                
+                self.updateView()
             }
         }
         
@@ -50,7 +82,11 @@ class MainVC: UIViewController {
     
     //** updateView only required if NSFetchedResultsController not used to ensure data is updated when data changes
     private func updateView() {
-        let hasGoals = goals.count > 0
+        var hasGoals = false
+        
+        if let goals = fetchedResultsController.fetchedObjects {
+            hasGoals = goals.count > 0
+        }
         
         tableView.isHidden = !hasGoals
         introductoryLabel.isHidden = hasGoals
@@ -78,6 +114,7 @@ class MainVC: UIViewController {
 extension MainVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        guard let goals = fetchedResultsController.fetchedObjects else { return 0 }
         return goals.count
     }
     
@@ -97,7 +134,7 @@ extension MainVC: UITableViewDataSource {
     func configure(_ cell: GoalCell, at indexPath: IndexPath) {
         
         //fetch goal
-        let goal = goals[indexPath.row]
+        let goal = fetchedResultsController.object(at: indexPath)
         
         //prepare strings for date and time
         let name = goal.name
@@ -109,6 +146,10 @@ extension MainVC: UITableViewDataSource {
         cell.goalDateLabel.text = date
         cell.goalTimeLabel.text = hours
     }
+    
+}
+
+extension MainVC: NSFetchedResultsControllerDelegate {
     
 }
 

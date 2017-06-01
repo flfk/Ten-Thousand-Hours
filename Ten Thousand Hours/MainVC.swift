@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreData
 
 class MainVC: UIViewController {
 
@@ -21,12 +22,22 @@ class MainVC: UIViewController {
         }
     }
     
+    private let persistentContainer = NSPersistentContainer(name: "Goals")
+    
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        setupView()
+        persistentContainer.loadPersistentStores { (persistentStoreDescription, error) in
+            if let error = error {
+                print("Unable to Load Persistent Store")
+                print("\(error), \(error.localizedDescription)")
+            } else {
+                self.setupView()
+            }
+        }
+        
         
         //Note: don't forget to set tableview datasource and delegate as self in the storyboard
         

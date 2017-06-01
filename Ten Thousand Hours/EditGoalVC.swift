@@ -12,6 +12,13 @@ class EditGoalVC: UIViewController {
     
     //MARK: - Properties
     
+    @IBOutlet weak var addGoalNameTxtFld: UITextField!
+    @IBOutlet weak var goalDateLabel: UILabel!
+    @IBOutlet weak var goalHoursLabel: UILabel!
+    @IBOutlet weak var goalMinutesLabel: UILabel!
+    
+    
+    
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {

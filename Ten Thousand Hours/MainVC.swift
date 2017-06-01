@@ -12,6 +12,9 @@ class MainVC: UIViewController {
 
     //MARK: - Properties
     
+    @IBOutlet weak var tableView: UITableView!
+
+    
     //MARK: - View Life Cycle
     
     override func viewDidLoad() {

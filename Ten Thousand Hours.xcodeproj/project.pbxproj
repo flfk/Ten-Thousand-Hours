@@ -1,0 +1,311 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		444089D61EE0AB5900216F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444089D51EE0AB5900216F2E /* AppDelegate.swift */; };
+		444089D81EE0AB5900216F2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 444089D71EE0AB5900216F2E /* ViewController.swift */; };
+		444089DB1EE0AB5A00216F2E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444089D91EE0AB5A00216F2E /* Main.storyboard */; };
+		444089DD1EE0AB5A00216F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 444089DC1EE0AB5A00216F2E /* Assets.xcassets */; };
+		444089E01EE0AB5A00216F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 444089DE1EE0AB5A00216F2E /* LaunchScreen.storyboard */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		444089D21EE0AB5900216F2E /* Ten Thousand Hours.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Ten Thousand Hours.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		444089D51EE0AB5900216F2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		444089D71EE0AB5900216F2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		444089DA1EE0AB5A00216F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		444089DC1EE0AB5A00216F2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		444089DF1EE0AB5A00216F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		444089E11EE0AB5A00216F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		444089CF1EE0AB5900216F2E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		444089C91EE0AB5900216F2E = {
+			isa = PBXGroup;
+			children = (
+				444089D41EE0AB5900216F2E /* Ten Thousand Hours */,
+				444089D31EE0AB5900216F2E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		444089D31EE0AB5900216F2E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				444089D21EE0AB5900216F2E /* Ten Thousand Hours.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		444089D41EE0AB5900216F2E /* Ten Thousand Hours */ = {
+			isa = PBXGroup;
+			children = (
+				444089D51EE0AB5900216F2E /* AppDelegate.swift */,
+				444089D71EE0AB5900216F2E /* ViewController.swift */,
+				444089D91EE0AB5A00216F2E /* Main.storyboard */,
+				444089DC1EE0AB5A00216F2E /* Assets.xcassets */,
+				444089DE1EE0AB5A00216F2E /* LaunchScreen.storyboard */,
+				444089E11EE0AB5A00216F2E /* Info.plist */,
+			);
+			path = "Ten Thousand Hours";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		444089D11EE0AB5900216F2E /* Ten Thousand Hours */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 444089E41EE0AB5A00216F2E /* Build configuration list for PBXNativeTarget "Ten Thousand Hours" */;
+			buildPhases = (
+				444089CE1EE0AB5900216F2E /* Sources */,
+				444089CF1EE0AB5900216F2E /* Frameworks */,
+				444089D01EE0AB5900216F2E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Ten Thousand Hours";
+			productName = "Ten Thousand Hours";
+			productReference = 444089D21EE0AB5900216F2E /* Ten Thousand Hours.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		444089CA1EE0AB5900216F2E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0830;
+				LastUpgradeCheck = 0830;
+				ORGANIZATIONNAME = "Felix Kramer";
+				TargetAttributes = {
+					444089D11EE0AB5900216F2E = {
+						CreatedOnToolsVersion = 8.3;
+						DevelopmentTeam = G27YQ5M35G;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 444089CD1EE0AB5900216F2E /* Build configuration list for PBXProject "Ten Thousand Hours" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 444089C91EE0AB5900216F2E;
+			productRefGroup = 444089D31EE0AB5900216F2E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				444089D11EE0AB5900216F2E /* Ten Thousand Hours */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		444089D01EE0AB5900216F2E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				444089E01EE0AB5A00216F2E /* LaunchScreen.storyboard in Resources */,
+				444089DD1EE0AB5A00216F2E /* Assets.xcassets in Resources */,
+				444089DB1EE0AB5A00216F2E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		444089CE1EE0AB5900216F2E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				444089D81EE0AB5900216F2E /* ViewController.swift in Sources */,
+				444089D61EE0AB5900216F2E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		444089D91EE0AB5A00216F2E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				444089DA1EE0AB5A00216F2E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		444089DE1EE0AB5A00216F2E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				444089DF1EE0AB5A00216F2E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		444089E21EE0AB5A00216F2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		444089E31EE0AB5A00216F2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.3;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		444089E51EE0AB5A00216F2E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G27YQ5M35G;
+				INFOPLIST_FILE = "Ten Thousand Hours/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "home.Ten-Thousand-Hours";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Debug;
+		};
+		444089E61EE0AB5A00216F2E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = G27YQ5M35G;
+				INFOPLIST_FILE = "Ten Thousand Hours/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = "home.Ten-Thousand-Hours";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 3.0;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		444089CD1EE0AB5900216F2E /* Build configuration list for PBXProject "Ten Thousand Hours" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				444089E21EE0AB5A00216F2E /* Debug */,
+				444089E31EE0AB5A00216F2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		444089E41EE0AB5A00216F2E /* Build configuration list for PBXNativeTarget "Ten Thousand Hours" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				444089E51EE0AB5A00216F2E /* Debug */,
+				444089E61EE0AB5A00216F2E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 444089CA1EE0AB5900216F2E /* Project object */;
+}

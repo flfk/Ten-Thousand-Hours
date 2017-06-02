@@ -26,6 +26,13 @@ class EditGoalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let date = Date()
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.long
+        let convertedDate = dateFormatter.string(from: date)
+        goalDateLabel.text = convertedDate
+        
+        
     }
     
     //MARK: - Actions

@@ -18,6 +18,8 @@ class EditGoalVC: UIViewController {
     @IBOutlet weak var goalHoursLabel: UILabel!
     @IBOutlet weak var goalMinutesLabel: UILabel!
     
+    @IBOutlet weak var addTimePicker: UIDatePicker!
+    
     //MARK: - Core Data Stack set up
     var managedObjectContext: NSManagedObjectContext?
     
@@ -31,7 +33,13 @@ class EditGoalVC: UIViewController {
         dateFormatter.dateStyle = DateFormatter.Style.long
         let convertedDate = dateFormatter.string(from: date)
         goalDateLabel.text = convertedDate
+    
+        //set default to 0
+        addTimePicker.countDownDuration = 0
         
+        didSelectTime(sender: addTimePicker)
+        
+        addTimePicker.addTarget(self, action: #selector(didSelectTime(sender:)), for: UIControlEvents.valueChanged)
         
     }
     
@@ -60,5 +68,20 @@ class EditGoalVC: UIViewController {
     
     //MARK: - Notification Handling
     
+    //MARK: - Helper Methods
+    
+    //update the labels for the picker view
+    func didSelectTime(sender: UIDatePicker) {
+        //to update the labels when a different time is selected
+        let addTime = addTimePicker.countDownDuration
+        let minutes = Int(addTime/60)
+        let hours = Int(addTime/60/60)
+        
+        goalMinutesLabel.text = "\(minutes)"
+        goalHoursLabel.text = "\(hours)"
+        
+        print("\(hours) hours, \(minutes) minutes")
+        
+    }
     
 }

@@ -263,6 +263,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="addGoalNameTxtFld" destination="lBc-lE-6dw" id="QUI-9n-ieA"/>
+                        <outlet property="addTimePicker" destination="c4Q-sQ-n8G" id="9JL-sM-w8N"/>
                         <outlet property="goalDateLabel" destination="0Mf-y3-0Xk" id="1ry-c5-psp"/>
                         <outlet property="goalHoursLabel" destination="sB0-3E-seo" id="Yze-Gv-hr8"/>
                         <outlet property="goalMinutesLabel" destination="TE2-bY-NEW" id="2M4-qI-84O"/>

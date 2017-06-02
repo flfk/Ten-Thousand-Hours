@@ -34,12 +34,12 @@ class EditGoalVC: UIViewController {
         let convertedDate = dateFormatter.string(from: date)
         goalDateLabel.text = convertedDate
     
-        //set default to 0
+        //set default for countdownpicker to 0
         addTimePicker.countDownDuration = 0
         
-        didSelectTime(sender: addTimePicker)
-        
-        addTimePicker.addTarget(self, action: #selector(didSelectTime(sender:)), for: UIControlEvents.valueChanged)
+        //set default for total time labels as 0
+        goalHoursLabel.text = "0"
+        goalMinutesLabel.text = "0"
         
     }
     
@@ -55,7 +55,8 @@ class EditGoalVC: UIViewController {
         goal.name = addGoalNameTxtFld.text
         goal.createdAt = NSDate()
         //**PLACEHOLDER NEED TO ADD UI PICKED TO ADD INITIAL TIME
-        goal.totalMinutes = 60
+        let totalSeconds = addTimePicker.countDownDuration
+        goal.totalMinutes = goal.totalMinutes + totalSeconds/60
         
         //pop view controller
         _ = navigationController?.popViewController(animated: true)

@@ -169,7 +169,7 @@ extension MainVC: UITableViewDataSource {
         
         //prepare strings for date and time
         let name = goal.name
-        let hours = "\(goal.totalMinutes/60)"
+        let hours = "\(Int(goal.totalMinutes/60))"
         //use date formatter class to set the date style
         let date = goal.createdAt
         let dateFormatter = DateFormatter()

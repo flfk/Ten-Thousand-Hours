@@ -72,6 +72,8 @@ class MainVC: UIViewController {
             }
         }
         
+        //add View Controller as observer so when app enters background it saves changes
+        NotificationCenter.default.addObserver(self, selector: #selector(applicationDidEnterBackground(_:)), name: Notification.Name.UIApplicationDidEnterBackground, object: nil)
         
         //Note: don't forget to set tableview datasource and delegate as self in the storyboard
         
@@ -118,6 +120,15 @@ class MainVC: UIViewController {
     
     
     //MARK: - Notification Handling
+    
+    func applicationDidEnterBackground(_ notification: Notification) {
+        do {
+            try persistentContainer.viewContext.save()
+        } catch {
+            print("Unable to Save Changes")
+            print("\(error), \(error.localizedDescription)")
+        }
+    }
 
 
 }

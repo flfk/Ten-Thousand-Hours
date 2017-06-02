@@ -1,4 +1,4 @@
-//
+let dateFormatter = DateFormatter()//
 //  MainVC.swift
 //  Ten Thousand Hours
 //
@@ -126,7 +126,7 @@ extension MainVC: UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         guard let goals = fetchedResultsController.fetchedObjects else { return 0 }
-        print("\(goals.count) rows")
+        
         return goals.count
     }
     
@@ -141,6 +141,14 @@ extension MainVC: UITableViewDataSource {
         return cell
     }
     
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        //fetch quote
+        let quote = fetchedResultsController.object(at: indexPath)
+        
+        //delete quote
+        quote.managedObjectContext?.delete(quote)
+    }
+    
     // Helper Methods Table View Extension
     
     func configure(_ cell: GoalCell, at indexPath: IndexPath) {
@@ -150,12 +158,17 @@ extension MainVC: UITableViewDataSource {
         
         //prepare strings for date and time
         let name = goal.name
-        let date = "\(goal.createdAt)"
         let hours = "\(goal.totalMinutes/60)"
+        //use date formatter class to set the date style
+        let date = goal.createdAt
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.medium
+        let convertedDate = dateFormatter.string(from: date! as Date)
+        
         
         //configure goal
         cell.goalNameLabel.text = name
-        cell.goalDateLabel.text = date
+        cell.goalDateLabel.text = convertedDate
         cell.goalTimeLabel.text = hours
     }
     
@@ -180,6 +193,10 @@ extension MainVC: NSFetchedResultsControllerDelegate {
                 tableView.insertRows(at: [indexPath], with: .fade)
             }
             break;
+        case .delete:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
         default:
             print("...")
         }

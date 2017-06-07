@@ -25,7 +25,7 @@ class EditGoalVC: UIViewController {
     var goal: Goal?
     
     //create variable for goal date
-    var date: Date?
+    var convertedDate: String?
     
     @IBOutlet weak var addTimePicker: UIDatePicker!
     
@@ -38,12 +38,7 @@ class EditGoalVC: UIViewController {
         super.viewDidLoad()
         
         //set the date label equal to the default value of the date picker
-        let date = datePicker.date
-        print("\(date)")
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        let convertedDate = dateFormatter.string(from: date)
-        goalDateLabel.text = convertedDate
+        goalDateLabel.text = convertDatePickerToString()
         
         //let date = Date()
         //let dateFormatter = DateFormatter()
@@ -67,12 +62,7 @@ class EditGoalVC: UIViewController {
             //set title for existing goal
             title = "Add Time"
             
-            //use date formatter class to set the date style
-            let date = goal.createdAt
-            let dateFormatter = DateFormatter()
-            dateFormatter.dateStyle = DateFormatter.Style.medium
-            let convertedDate = dateFormatter.string(from: date! as Date)
-            goalDateLabel.text = convertedDate
+            goalDateLabel.text = goal.createdAt
         } else {
             //set title for new goal
             title = "Add Goal"
@@ -87,11 +77,7 @@ class EditGoalVC: UIViewController {
     }
     
     @IBAction func saveDateButton(_ sender: Any) {
-        let date = datePicker.date
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateStyle = DateFormatter.Style.long
-        let convertedDate = dateFormatter.string(from: date)
-        goalDateLabel.text = convertedDate
+        goalDateLabel.text = convertDatePickerToString()
         
         datePickerView.isHidden = true
     }
@@ -106,7 +92,7 @@ class EditGoalVC: UIViewController {
             
             //configure goal
             newGoal.name = addGoalNameTxtFld.text
-            newGoal.createdAt = NSDate()
+            newGoal.createdAt = convertedDate
             let totalSeconds = addTimePicker.countDownDuration
             newGoal.totalMinutes = newGoal.totalMinutes + totalSeconds/60
             
@@ -117,7 +103,7 @@ class EditGoalVC: UIViewController {
         if let goal = goal {
             //configure goal
             goal.name = addGoalNameTxtFld.text
-            goal.createdAt = NSDate()
+            goal.createdAt = convertDatePickerToString()
             
             let totalSeconds = addTimePicker.countDownDuration
             goal.totalMinutes = goal.totalMinutes + totalSeconds/60
@@ -131,9 +117,15 @@ class EditGoalVC: UIViewController {
     
     //MARK: - Navigation
     
-    
     //MARK: - Notification Handling
     
     //MARK: - Helper Methods
+    
+    func convertDatePickerToString() -> String {
+        let date = datePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.long
+        return dateFormatter.string(from: date)
+    }
     
 }

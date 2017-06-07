@@ -121,7 +121,7 @@ class EditGoalVC: UIViewController {
     
     //MARK: - Helper Methods
     
-    func convertDatePickerToString() -> String {
+    private func convertDatePickerToString() -> String {
         let date = datePicker.date
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.long

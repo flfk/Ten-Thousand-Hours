@@ -18,8 +18,14 @@ class EditGoalVC: UIViewController {
     @IBOutlet weak var goalHoursLabel: UILabel!
     @IBOutlet weak var goalMinutesLabel: UILabel!
     
+    @IBOutlet weak var datePickerView: UIView!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    
     //create variable for goal to load data if it exists already
     var goal: Goal?
+    
+    //create variable for goal date
+    var date: Date?
     
     @IBOutlet weak var addTimePicker: UIDatePicker!
     
@@ -31,11 +37,19 @@ class EditGoalVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let date = Date()
+        //set the date label equal to the default value of the date picker
+        let date = datePicker.date
+        print("\(date)")
         let dateFormatter = DateFormatter()
         dateFormatter.dateStyle = DateFormatter.Style.long
         let convertedDate = dateFormatter.string(from: date)
         goalDateLabel.text = convertedDate
+        
+        //let date = Date()
+        //let dateFormatter = DateFormatter()
+        //dateFormatter.dateStyle = DateFormatter.Style.long
+        //let convertedDate = dateFormatter.string(from: date)
+        //goalDateLabel.text = convertedDate
     
         //set default for countdownpicker to 0
         addTimePicker.countDownDuration = 0
@@ -68,6 +82,21 @@ class EditGoalVC: UIViewController {
     
     //MARK: - Actions
     
+    @IBAction func datePickerButton(_ sender: Any) {
+        datePickerView.isHidden = false
+    }
+    
+    @IBAction func saveDateButton(_ sender: Any) {
+        let date = datePicker.date
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateStyle = DateFormatter.Style.long
+        let convertedDate = dateFormatter.string(from: date)
+        goalDateLabel.text = convertedDate
+        
+        datePickerView.isHidden = true
+    }
+    
+    
     @IBAction func saveButton(_ sender: Any) {
         guard let managedObjectContext = managedObjectContext else { return }
         
@@ -78,7 +107,6 @@ class EditGoalVC: UIViewController {
             //configure goal
             newGoal.name = addGoalNameTxtFld.text
             newGoal.createdAt = NSDate()
-            
             let totalSeconds = addTimePicker.countDownDuration
             newGoal.totalMinutes = newGoal.totalMinutes + totalSeconds/60
             
@@ -107,19 +135,5 @@ class EditGoalVC: UIViewController {
     //MARK: - Notification Handling
     
     //MARK: - Helper Methods
-    
-    //update the labels for the picker view
-    func didSelectTime(sender: UIDatePicker) {
-        //to update the labels when a different time is selected
-        let addTime = addTimePicker.countDownDuration
-        let minutes = Int(addTime/60)
-        let hours = Int(addTime/60/60)
-        
-        goalMinutesLabel.text = "\(minutes)"
-        goalHoursLabel.text = "\(hours)"
-        
-        print("\(hours) hours, \(minutes) minutes")
-        
-    }
     
 }

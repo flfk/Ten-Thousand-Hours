@@ -53,7 +53,7 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5j-cv-ine">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5j-cv-ine">
                                                     <rect key="frame" x="238" y="31" width="31" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="31" id="FFH-yp-MFq"/>
@@ -63,25 +63,10 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="veY-UM-Nyx">
-                                                    <rect key="frame" x="274" y="26.5" width="30" height="30"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="30" id="4Zb-b8-Wff"/>
-                                                        <constraint firstAttribute="width" constant="30" id="zBG-07-fvq"/>
-                                                    </constraints>
-                                                    <state key="normal" title="+"/>
-                                                    <connections>
-                                                        <action selector="addTimeButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="HXF-ei-cy5"/>
-                                                        <action selector="addTimeButton:" destination="Z8O-Uc-zbw" eventType="touchUpInside" id="kRx-9R-prj"/>
-                                                    </connections>
-                                                </button>
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="9vb-wQ-uY8" firstAttribute="leading" secondItem="Twg-3u-8F7" secondAttribute="leadingMargin" constant="29" id="0wo-BK-Nd3"/>
-                                                <constraint firstItem="veY-UM-Nyx" firstAttribute="centerY" secondItem="Twg-3u-8F7" secondAttribute="centerY" id="7Iw-3T-WVK"/>
                                                 <constraint firstItem="9vb-wQ-uY8" firstAttribute="top" secondItem="Xho-Md-N2r" secondAttribute="bottom" constant="8" id="ERG-Ds-Dp3"/>
-                                                <constraint firstItem="veY-UM-Nyx" firstAttribute="leading" secondItem="O5j-cv-ine" secondAttribute="trailing" constant="5" id="fbs-Xi-p9J"/>
-                                                <constraint firstAttribute="trailingMargin" secondItem="veY-UM-Nyx" secondAttribute="trailing" constant="8" id="gfD-C5-lOx"/>
                                                 <constraint firstItem="Xho-Md-N2r" firstAttribute="top" secondItem="Twg-3u-8F7" secondAttribute="topMargin" id="lp3-9I-alM"/>
                                                 <constraint firstItem="Xho-Md-N2r" firstAttribute="leading" secondItem="Twg-3u-8F7" secondAttribute="leadingMargin" constant="29" id="uMr-cY-jba"/>
                                                 <constraint firstItem="O5j-cv-ine" firstAttribute="centerY" secondItem="Twg-3u-8F7" secondAttribute="centerY" id="y3P-7J-O0D"/>
@@ -259,9 +244,7 @@
                             <constraint firstItem="TE2-bY-NEW" firstAttribute="top" secondItem="0Mf-y3-0Xk" secondAttribute="bottom" constant="32" id="y2n-LF-7dM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Goal" id="KBo-zh-E5q">
-                        <barButtonItem key="rightBarButtonItem" systemItem="trash" id="iWF-BM-okr"/>
-                    </navigationItem>
+                    <navigationItem key="navigationItem" title="Edit Goal" id="KBo-zh-E5q"/>
                     <connections>
                         <outlet property="addGoalNameTxtFld" destination="lBc-lE-6dw" id="QUI-9n-ieA"/>
                         <outlet property="addTimePicker" destination="c4Q-sQ-n8G" id="9JL-sM-w8N"/>

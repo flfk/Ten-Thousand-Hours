@@ -29,7 +29,5 @@ class GoalCell: UITableViewCell {
 
     //MARK: - Actions
     
-    @IBAction func addTimeButton(_ sender: Any) {
-    }
 
 }

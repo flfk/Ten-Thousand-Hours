@@ -18,6 +18,9 @@ class EditGoalVC: UIViewController {
     @IBOutlet weak var goalHoursLabel: UILabel!
     @IBOutlet weak var goalMinutesLabel: UILabel!
     
+    //create variable for goal to load data if it exists already
+    var goal: Goal?
+    
     @IBOutlet weak var addTimePicker: UIDatePicker!
     
     //MARK: - Core Data Stack set up
@@ -41,6 +44,20 @@ class EditGoalVC: UIViewController {
         goalHoursLabel.text = "0"
         goalMinutesLabel.text = "0"
         
+        //if a goal selected load the available data
+        if let goal = goal {
+            addGoalNameTxtFld.text = goal.name
+            goalHoursLabel.text = "\(Int(goal.totalMinutes/60))"
+            goalMinutesLabel.text = "\(Int(goal.totalMinutes.truncatingRemainder(dividingBy: 60)))"
+            
+            //use date formatter class to set the date style
+            let date = goal.createdAt
+            let dateFormatter = DateFormatter()
+            dateFormatter.dateStyle = DateFormatter.Style.medium
+            let convertedDate = dateFormatter.string(from: date! as Date)
+            goalDateLabel.text = convertedDate
+        }
+        
     }
     
     //MARK: - Actions
@@ -48,15 +65,29 @@ class EditGoalVC: UIViewController {
     @IBAction func saveButton(_ sender: Any) {
         guard let managedObjectContext = managedObjectContext else { return }
         
-        //create goal
-        let goal = Goal(context: managedObjectContext)
+        if goal == nil {
+            //create goal
+            let newGoal = Goal(context: managedObjectContext)
+            
+            //configure goal
+            newGoal.name = addGoalNameTxtFld.text
+            newGoal.createdAt = NSDate()
+            
+            let totalSeconds = addTimePicker.countDownDuration
+            newGoal.totalMinutes = newGoal.totalMinutes + totalSeconds/60
+            
+            //set goal
+            goal = newGoal
+        }
         
-        //configure goal
-        goal.name = addGoalNameTxtFld.text
-        goal.createdAt = NSDate()
-        //**PLACEHOLDER NEED TO ADD UI PICKED TO ADD INITIAL TIME
-        let totalSeconds = addTimePicker.countDownDuration
-        goal.totalMinutes = goal.totalMinutes + totalSeconds/60
+        if let goal = goal {
+            //configure goal
+            goal.name = addGoalNameTxtFld.text
+            goal.createdAt = NSDate()
+            
+            let totalSeconds = addTimePicker.countDownDuration
+            goal.totalMinutes = goal.totalMinutes + totalSeconds/60
+        }
         
         //pop view controller
         _ = navigationController?.popViewController(animated: true)

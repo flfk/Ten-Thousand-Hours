@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Goal Progress-->
+        <!--Select Goal-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="Ten_Thousand_Hours" customModuleProvider="target" sceneMemberID="viewController">
@@ -91,6 +91,7 @@
                                             <outlet property="goalDateLabel" destination="9vb-wQ-uY8" id="Z32-dC-oWU"/>
                                             <outlet property="goalNameLabel" destination="Xho-Md-N2r" id="y1g-fj-pug"/>
                                             <outlet property="goalTimeLabel" destination="O5j-cv-ine" id="rSR-Ia-A4b"/>
+                                            <segue destination="6Bo-Tj-ZQO" kind="show" identifier="SegueEditGoal" id="1nN-MF-BKm"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -120,7 +121,7 @@
                             <constraint firstItem="OnO-Wc-4eC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gQj-Ur-igd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Goal Progress" id="RP5-lE-zOR">
+                    <navigationItem key="navigationItem" title="Select Goal" id="RP5-lE-zOR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LA0-U6-c89">
                             <connections>
                                 <segue destination="6Bo-Tj-ZQO" kind="show" identifier="SegueAddGoal" id="ObH-f5-Zp6"/>
@@ -225,7 +226,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="c4Q-sQ-n8G">
+                            <datePicker contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="countDownTimer" minuteInterval="5" translatesAutoresizingMaskIntoConstraints="NO" id="c4Q-sQ-n8G">
                                 <rect key="frame" x="0.0" y="293" width="320" height="216"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="216" id="BeG-La-DBj"/>
@@ -292,4 +293,7 @@
             <point key="canvasLocation" x="264" y="124"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="1nN-MF-BKm"/>
+    </inferredMetricsTieBreakers>
 </document>

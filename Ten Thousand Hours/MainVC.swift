@@ -24,6 +24,7 @@ class MainVC: UIViewController {
     //}
     
     private let segueAddGoal = "SegueAddGoal"
+    private let segueEditGoal = "SegueEditGoal"
     
     //MARK: - Core Data Stack Set Up
     //create core data persistent container and fetched results controller variables and add NSFetchedResultsControllerDelegate to conform to protocol
@@ -35,7 +36,7 @@ class MainVC: UIViewController {
         let fetchRequest: NSFetchRequest<Goal> = Goal.fetchRequest()
         
         //configure fetch request
-        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "createdAt", ascending: true)]
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "name", ascending: true)]
         
         //create fetched request controller
         let fetchedResultsController = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: self.persistentContainer.viewContext, sectionNameKeyPath: nil, cacheName: nil)
@@ -110,12 +111,16 @@ class MainVC: UIViewController {
     //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == segueAddGoal {
-            if let destinationViewController = segue.destination as? EditGoalVC {
-                //Configure view controller
-                destinationViewController.managedObjectContext = persistentContainer.viewContext
-            }
+        guard let destinationViewController = segue.destination as? EditGoalVC else { return }
+        
+        //configure view controller
+        destinationViewController.managedObjectContext = persistentContainer.viewContext
+        
+        if let indexPath = tableView.indexPathForSelectedRow, segue.identifier == segueEditGoal {
+            //configure View Controller
+            destinationViewController.goal = fetchedResultsController.object(at: indexPath)
         }
+        
     }
     
     
@@ -128,6 +133,8 @@ class MainVC: UIViewController {
             print("Unable to Save Changes")
             print("\(error), \(error.localizedDescription)")
         }
+        
+        print("Managed Object Context saved to persitent container")
     }
 
 
@@ -208,8 +215,17 @@ extension MainVC: NSFetchedResultsControllerDelegate {
             if let indexPath = indexPath {
                 tableView.deleteRows(at: [indexPath], with: .fade)
             }
-        default:
-            print("...")
+        case.update:
+            if let indexPath = indexPath, let cell = tableView.cellForRow(at: indexPath) as? GoalCell {
+                configure(cell, at: indexPath)
+            }
+        case.move:
+            if let indexPath = indexPath {
+                tableView.deleteRows(at: [indexPath], with: .fade)
+            }
+            if let newIndexPath = newIndexPath {
+                tableView.insertRows(at: [newIndexPath], with: .fade)
+            }
         }
     }
     

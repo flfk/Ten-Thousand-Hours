@@ -50,12 +50,18 @@ class EditGoalVC: UIViewController {
             goalHoursLabel.text = "\(Int(goal.totalMinutes/60))"
             goalMinutesLabel.text = "\(Int(goal.totalMinutes.truncatingRemainder(dividingBy: 60)))"
             
+            //set title for existing goal
+            title = "Add Time"
+            
             //use date formatter class to set the date style
             let date = goal.createdAt
             let dateFormatter = DateFormatter()
             dateFormatter.dateStyle = DateFormatter.Style.medium
             let convertedDate = dateFormatter.string(from: date! as Date)
             goalDateLabel.text = convertedDate
+        } else {
+            //set title for new goal
+            title = "Add Goal"
         }
         
     }

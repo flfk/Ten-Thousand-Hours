@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Select Goal-->
+        <!--MainVC-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="MainVC" customModule="Ten_Thousand_Hours" customModuleProvider="target" sceneMemberID="viewController">
@@ -53,8 +53,8 @@
                                                     <nil key="textColor"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5j-cv-ine">
-                                                    <rect key="frame" x="238" y="31" width="31" height="21"/>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="300" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O5j-cv-ine">
+                                                    <rect key="frame" x="266" y="31" width="31" height="21"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="31" id="FFH-yp-MFq"/>
                                                         <constraint firstAttribute="height" constant="21" id="cNZ-Mn-znt"/>
@@ -69,6 +69,7 @@
                                                 <constraint firstItem="9vb-wQ-uY8" firstAttribute="top" secondItem="Xho-Md-N2r" secondAttribute="bottom" constant="8" id="ERG-Ds-Dp3"/>
                                                 <constraint firstItem="Xho-Md-N2r" firstAttribute="top" secondItem="Twg-3u-8F7" secondAttribute="topMargin" id="lp3-9I-alM"/>
                                                 <constraint firstItem="Xho-Md-N2r" firstAttribute="leading" secondItem="Twg-3u-8F7" secondAttribute="leadingMargin" constant="29" id="uMr-cY-jba"/>
+                                                <constraint firstAttribute="trailingMargin" secondItem="O5j-cv-ine" secondAttribute="trailing" constant="15" id="xq2-0a-4rF"/>
                                                 <constraint firstItem="O5j-cv-ine" firstAttribute="centerY" secondItem="Twg-3u-8F7" secondAttribute="centerY" id="y3P-7J-O0D"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -106,7 +107,7 @@
                             <constraint firstItem="OnO-Wc-4eC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="gQj-Ur-igd"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Select Goal" id="RP5-lE-zOR">
+                    <navigationItem key="navigationItem" title="MainVC" id="RP5-lE-zOR">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="LA0-U6-c89">
                             <connections>
                                 <segue destination="6Bo-Tj-ZQO" kind="show" identifier="SegueAddGoal" id="ObH-f5-Zp6"/>
@@ -122,7 +123,7 @@
             </objects>
             <point key="canvasLocation" x="1115.625" y="123.59154929577466"/>
         </scene>
-        <!--Edit Goal-->
+        <!--EditGoal-->
         <scene sceneID="Vsb-Rj-XbA">
             <objects>
                 <viewController id="6Bo-Tj-ZQO" customClass="EditGoalVC" customModule="Ten_Thousand_Hours" customModuleProvider="target" sceneMemberID="viewController">
@@ -244,7 +245,7 @@
                             <constraint firstItem="TE2-bY-NEW" firstAttribute="top" secondItem="0Mf-y3-0Xk" secondAttribute="bottom" constant="32" id="y2n-LF-7dM"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="Edit Goal" id="KBo-zh-E5q"/>
+                    <navigationItem key="navigationItem" title="EditGoal" id="KBo-zh-E5q"/>
                     <connections>
                         <outlet property="addGoalNameTxtFld" destination="lBc-lE-6dw" id="QUI-9n-ieA"/>
                         <outlet property="addTimePicker" destination="c4Q-sQ-n8G" id="9JL-sM-w8N"/>

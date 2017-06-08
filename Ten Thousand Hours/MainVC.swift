@@ -121,6 +121,8 @@ class MainVC: UIViewController {
         if let indexPath = tableView.indexPathForSelectedRow, segue.identifier == segueEditGoal {
             //configure View Controller
             destinationViewController.goal = fetchedResultsController.object(at: indexPath)
+            //deslect the row so that it doesn't remain highlighted
+            tableView.deselectRow(at: indexPath, animated: true)
         }
         
     }

@@ -63,6 +63,9 @@ class EditGoalVC: UIViewController {
             title = "Add Goal"
         }
         
+        //chage font color of datepicker
+        datePicker.setValue(UIColor.darkGray, forKeyPath: "textColor")
+        
     }
     
     //MARK: - Actions
@@ -122,6 +125,7 @@ class EditGoalVC: UIViewController {
         dateFormatter.dateStyle = DateFormatter.Style.medium
         return dateFormatter.string(from: date)
     }
+    
     
 }
 

@@ -18,6 +18,8 @@ class EditGoalVC: UIViewController {
     @IBOutlet weak var goalHoursLabel: UILabel!
     @IBOutlet weak var goalMinutesLabel: UILabel!
     
+    @IBOutlet weak var addTimePicker: UIDatePicker!
+    
     @IBOutlet weak var datePickerView: UIView!
     @IBOutlet weak var datePicker: UIDatePicker!
     
@@ -26,8 +28,6 @@ class EditGoalVC: UIViewController {
     
     //create variable for goal date
     var convertedDate: String?
-    
-    @IBOutlet weak var addTimePicker: UIDatePicker!
     
     //MARK: - Core Data Stack set up
     var managedObjectContext: NSManagedObjectContext?
@@ -65,6 +65,7 @@ class EditGoalVC: UIViewController {
         
         //chage font color of datepicker
         datePicker.setValue(UIColor.darkGray, forKeyPath: "textColor")
+        addTimePicker.setValue(UIColor.darkGray, forKeyPath: "textColor")
         
     }
     

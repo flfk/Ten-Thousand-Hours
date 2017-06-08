@@ -124,3 +124,19 @@ class EditGoalVC: UIViewController {
     }
     
 }
+
+extension EditGoalVC: UITextFieldDelegate {
+    
+    //don't forget in the storyboard to set the textfield delegate to the viewcontroller
+ 
+    //hide keyboard when the user touches outside keyboard
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    //hide keyboard when the user touches return key
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        addGoalNameTxtFld.resignFirstResponder()
+        return true
+    }
+}
